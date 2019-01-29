@@ -1,7 +1,7 @@
 import React from "react";
 import Pikachu from "./components/Pikachu";
 import styled from "styled-components/native";
-
+import { ThemeProvider } from "styled-components";
 const theme = {
     background: "#f4dc26",
     eye: "#232222",
