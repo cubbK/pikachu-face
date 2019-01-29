@@ -23,18 +23,22 @@ const Cheek = styled.View`
 `;
 
 const CheekLeft = styled(Cheek)`
-    transform: translate(-240px, 60px);
+    transform: translate(-230px, 60px);
 `;
 
 const CheekRight = styled(Cheek)`
-    transform: translate(240px, 60px);
+    transform: translate(230px, 60px);
 `;
 
 const Mouth = styled.View`
     width: 170px;
     height: 20px;
-    background-color: ${props => props.theme.mouth};
     transform: translate(0, 100px);
+    border-bottom-left-radius: 100;
+    border-bottom-right-radius: 100;
+    border-bottom-width: 6px;
+    border-bottom-color: ${props => props.theme.mouth};
+    overflow: hidden;
 `;
 
 const Nose = styled.View`
@@ -62,12 +66,24 @@ const EyeRight = styled(Eye)`
     transform: translate(140px, -65px);
 `;
 
+const Iris = styled.View`
+    width: 40px;
+    height: 40px;
+    background-color: ${props => props.theme.iris};
+    border-radius: 50;
+    transform: translate(10px, 10px);
+`;
+
 export default class Pikachu extends React.Component {
     render() {
         return (
             <Face>
-                <EyeLeft />
-                <EyeRight />
+                <EyeLeft>
+                    <Iris />
+                </EyeLeft>
+                <EyeRight>
+                    <Iris />
+                </EyeRight>
                 <Nose />
                 <CheekLeft />
                 <CheekRight />
