@@ -38,7 +38,6 @@ const Mouth = styled.View`
     border-bottom-right-radius: 100;
     border-bottom-width: 6px;
     border-bottom-color: ${props => props.theme.mouth};
-    overflow: hidden;
 `;
 
 const Nose = styled.View`
@@ -77,7 +76,7 @@ const Iris = styled.View`
 export default class Pikachu extends React.Component {
     render() {
         return (
-            <Face>
+            <Face {...this.props}>
                 <EyeLeft>
                     <Iris />
                 </EyeLeft>

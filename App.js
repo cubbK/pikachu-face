@@ -1,5 +1,5 @@
 import React from "react";
-import Pikachu from "./components/Pikachu";
+import PikachuGyroscoped from "./containers/PikachuGyroscoped";
 import styled from "styled-components/native";
 import { ThemeProvider } from "styled-components";
 const theme = {
@@ -25,7 +25,7 @@ export default class App extends React.Component {
         return (
             <ThemeProvider theme={theme}>
                 <Main>
-                    <Pikachu />
+                    <PikachuGyroscoped />
                 </Main>
             </ThemeProvider>
         );
