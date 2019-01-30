@@ -3,6 +3,7 @@ import Pikachu from "../components/Pikachu";
 import styled from "styled-components/native";
 import { DangerZone } from "expo";
 import { Text } from "react-native";
+import { Spring } from "react-spring";
 
 const { DeviceMotion } = DangerZone;
 
@@ -17,18 +18,18 @@ export default class PikachuGyroscoped extends React.Component {
         super();
         this.state = {
             motionData: {
-              accelerationIncludingGravity: {
-                x: 0,
-                y: 0,
-                z: 0
-              }
+                accelerationIncludingGravity: {
+                    x: 0,
+                    y: 0,
+                    z: 0
+                }
             }
         };
     }
 
     componentDidMount() {
         this.subscribeDeviceMotion();
-        this.fast();
+        this.slow();
     }
 
     componentWillUnmount() {
@@ -36,7 +37,7 @@ export default class PikachuGyroscoped extends React.Component {
     }
 
     slow = () => {
-        DeviceMotion.setUpdateInterval(3000);
+        DeviceMotion.setUpdateInterval(200);
     };
 
     fast = () => {
@@ -58,11 +59,18 @@ export default class PikachuGyroscoped extends React.Component {
     };
 
     render() {
-        const {x, y, z} = this.state.motionData.accelerationIncludingGravity;
+        const { x, y, z } = this.state.motionData.accelerationIncludingGravity;
 
-        console.log(y);
-        
-        return <PikachuRotated x={0} y={y * 10} z={0} />;
+        const toX = round(x * 2 + 9.35);
+        let toY = round(y * -10);
+
+        return (
+            <Spring from={{ x: 0, y: 0, z: 0 }} to={{ x: toX, y: toY, z: 0 }}>
+                {props => {
+                    return <PikachuRotated {...props} />;
+                }}
+            </Spring>
+        );
     }
 }
 
