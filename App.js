@@ -12,7 +12,7 @@ const theme = {
 };
 
 const Main = styled.View`
-    background-color: ${props => props.theme.background};
+    /* background-color: ${props => props.theme.background}; */
     height: 100%;
     width: 100%;
     display: flex;

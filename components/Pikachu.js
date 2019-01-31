@@ -31,13 +31,14 @@ const CheekRight = styled(Cheek)`
 `;
 
 const Mouth = styled.View`
-    width: 170px;
-    height: 20px;
+    width: 150px;
+    height: 60px;
     transform: translate(0, 100px);
     border-bottom-left-radius: 100;
     border-bottom-right-radius: 100;
-    border-bottom-width: 6px;
-    border-bottom-color: ${props => props.theme.mouth};
+    z-index: 100;
+    position: absolute;
+    background: ${props => props.theme.mouth};
 `;
 
 const Nose = styled.View`

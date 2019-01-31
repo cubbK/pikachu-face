@@ -61,7 +61,7 @@ export default class PikachuGyroscoped extends React.Component {
     render() {
         const { x, y, z } = this.state.motionData.accelerationIncludingGravity;
 
-        const toX = round(x * 2 + 9.35);
+        const toX = round(x * 2 + 20);
         let toY = round(y * -10);
 
         return (
